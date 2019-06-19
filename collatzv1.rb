@@ -13,7 +13,7 @@ def collatz(num)
   sequence
 end
 
-def seq_lengths(num) # Use the collect method as seen in lesson 12.
+def seq_lengths(num)
   seq_lengths_arr = []
   i = 1
   while i <= num
@@ -35,8 +35,26 @@ def longest_seq(array)
   input
 end
 
-input2 = seq_lengths(1000000)
-puts longest_seq(input2)
+def assert_equal(actual, expected)
+  if actual == expected
+    puts 'Passed'
+  else
+    puts "Failed. Expected #{expected} but got #{actual}."
+  end
+end
+
+assert_equal(longest_seq(seq_lengths(1)), 1)
+assert_equal(longest_seq(seq_lengths(2)), 2)
+assert_equal(longest_seq(seq_lengths(3)), 3)
+assert_equal(longest_seq(seq_lengths(4)), 3)
+assert_equal(longest_seq(seq_lengths(5)), 3)
+assert_equal(longest_seq(seq_lengths(6)), 6)
+assert_equal(longest_seq(seq_lengths(7)), 7)
+
+
+
+# input2 = seq_lengths(1000000)
+# puts longest_seq(input2)
 
 # require 'benchmark'
 # num = 1000000
@@ -48,30 +66,6 @@ puts longest_seq(input2)
 # input2 = seq_lengths(1000000)
 # Benchmark.bm do |x|
 #   x.report('longest_seq') { longest_seq(input2) }
-# end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def assert_equal(actual, expected)
-#   if actual == expected
-#     puts 'Passed'
-#   else
-#     puts "Failed. Expected #{expected} but got #{actual}."
-#   end
 # end
 
 # assert_equal(collatz(1), [1])

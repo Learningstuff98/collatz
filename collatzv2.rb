@@ -1,6 +1,6 @@
 def collatz_length(num)
   length = 1
-  while num != 1 
+  while num != 1
     length += 1
     if num.even?
       num = num / 2
@@ -33,8 +33,24 @@ def longest_seq(array)
   input
 end
 
-input2 = seq_lengths(1000000)
-puts longest_seq(input2)
+def assert_equal(actual, expected)
+  if actual == expected
+    puts 'Passed'
+  else
+    puts "Failed. Expected #{expected} but got #{actual}."
+  end
+end
+
+assert_equal(longest_seq(seq_lengths(1)), 1)
+assert_equal(longest_seq(seq_lengths(2)), 2)
+assert_equal(longest_seq(seq_lengths(3)), 3)
+assert_equal(longest_seq(seq_lengths(4)), 3)
+assert_equal(longest_seq(seq_lengths(5)), 3)
+assert_equal(longest_seq(seq_lengths(6)), 6)
+assert_equal(longest_seq(seq_lengths(7)), 7)
+
+# input2 = seq_lengths(1000000)
+# puts longest_seq(input2)
 
 # require 'benchmark'
 # num = 1000000
