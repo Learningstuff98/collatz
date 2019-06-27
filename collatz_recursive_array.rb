@@ -1,16 +1,7 @@
 def collatz(num, sequence = [num])
-  if num == 1
-    sequence
-  else
-    if num.even?
-      num /= 2
-      sequence.push(num)
-    else
-      num = (num * 3) + 1
-      sequence.push(num)
-    end
-    collatz(num, sequence)
-  end
+  return sequence if num == 1
+  num = num.even? ? num / 2 : (num * 3) + 1
+  collatz(num, sequence.push(num))
 end
 
 def seq_lengths(num)
