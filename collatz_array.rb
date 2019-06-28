@@ -1,11 +1,7 @@
 def collatz(num)
   sequence = [num]
   while num != 1
-    if num.even?
-      num /= 2
-    else
-      num = (num * 3) + 1
-    end
+    num = num.even? ? num /= 2 : num = (num * 3) + 1
     sequence.push(num)
   end
   sequence

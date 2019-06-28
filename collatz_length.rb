@@ -1,12 +1,8 @@
 def collatz_length(num)
   length = 1
   while num != 1
+    num = num.even? ? num /= 2 : num = (num * 3) + 1
     length += 1
-    if num.even?
-      num /= 2
-    else
-      num = (num * 3) + 1
-    end
   end
   length
 end
